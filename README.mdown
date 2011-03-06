@@ -1,0 +1,37 @@
+# thor-desktop
+
+A set of Thor tasks for managing the windows on your OSX desktop.
+
+Install them with:
+
+    $ thor install desktop.thor
+
+Or, if you don’t want to actually download this stuff, just use:
+
+    $ thor install "https://github.com/mocoso/thor-desktop/raw/master/desktop.thor"
+
+## Tasks
+
+### Launch
+
+    $ thor desktop:launch TextMate Terminal
+
+Will open your TextMate and Terminal applications
+
+### Quit
+
+    $ thor desktop:quit TextMate Terminal
+
+Will quit your TextMate and Terminal applications
+
+### Split
+
+    $ thor desktop:split TextMate 3 Terminal 2
+
+Will move the windows for TextMate and Terminal apps, splitting your main display verticall so that Textmate windows take up the first three fifths of the space and Terminal windows the other two fifths. These applications will be launched if they are not currently running.
+
+### Move App to display
+
+    $ thor desktop:move_app_to_display iChat 1
+
+Will move the windows for your iChat application to your second display (displays are indexed from zero). The iChat application will be launched if it is not currently running.
