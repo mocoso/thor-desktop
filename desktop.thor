@@ -8,7 +8,7 @@ require 'appscript'
 require 'osx/cocoa'
 
 class Desktop < Thor
-  desc 'launch', 'Launch named applications'
+  desc 'launch [APP_NAME] [APP_NAME]...', 'Launch named applications'
   def launch(*names)
     applications(names).reject(&:is_running?).each do |application|
       puts "Launching #{application.to_s}"
@@ -16,7 +16,7 @@ class Desktop < Thor
     end
   end
 
-  desc 'quit', 'Quit name applications'
+  desc 'quit [APP_NAME] [APP_NAME]...', 'Quit name applications'
   def quit(*names)
     applications(names).select(&:is_running?).each do |application|
       puts "Quitting #{application.to_s}"
@@ -24,7 +24,7 @@ class Desktop < Thor
     end
   end
 
-  desc 'split', 'Divide apps into screen e.g. thor desktop:split Textmate 3 Terminal 2'
+  desc 'split [APP_NAME] [WEIGHTING] [APP_NAME] [WEIGHTING]...', 'Divide apps into screen e.g. thor desktop:split Textmate 3 Terminal 2'
   def split(*args)
     split_ratios = []
     total_weight = 0
@@ -54,7 +54,7 @@ class Desktop < Thor
     end
   end
 
-  desc 'move_app_to_display', 'Move named app to display with index'
+  desc 'move_app_to_display [APP_NAME] [DISPLAY_INDEX]', 'Move named app to display with index'
   def move_app_to_display(app_name, display_index)
     display_index = display_index.to_i
     if screens.size > display_index
