@@ -55,8 +55,6 @@ class Desktop < Thor
   end
 
   desc 'move_app_to_display', 'Move named app to display with index'
-  method_option :app_name, :type => :string
-  method_option :display_index, :type => :numeric
   def move_app_to_display(app_name, display_index)
     display_index = display_index.to_i
     if screens.size > display_index
